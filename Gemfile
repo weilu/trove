@@ -4,4 +4,5 @@ group :development do
   gem 'rspec'
   gem 'pivotal-tracker'
   gem 'pry'
+  gem 'activesupport'
 end
