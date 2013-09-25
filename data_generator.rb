@@ -5,7 +5,14 @@ class DataGenerator
 
   def initialize stories
     @stories = stories
-    @releases = stories.select{|s| s.story_type == 'release'}
+    grouped = stories.group_by{|s| s.story_type}
+    @releases = grouped['release']
+    @features = grouped['feature']
+
+
+    grouped = stories.
+      select{|s| %w(release feature).include?(s.story_type)}.
+      group_by{|s| [ s.story_type, s.labels ]}
   end
 
   def generate

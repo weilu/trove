@@ -14,8 +14,8 @@ module PivotalTracker
       end
     end
 
-    describe '.group_by_releases' do
-      it 'returns a hash keyed by release stories' do
+    describe '.assign_releases' do
+      it 'assign a release to every feature' do
         feature1 = Story.new(story_type: 'feature')
         release1 = Story.new(story_type: 'release')
         feature2 = Story.new(story_type: 'feature')
@@ -23,11 +23,26 @@ module PivotalTracker
         feature3 = Story.new(story_type: 'feature')
 
         stories = [feature1, release1, feature2, release2, feature3]
-        expect(Story.group_by_releases stories).to eq({
-          release1 => [feature1],
-          release2 => [feature2]
-        })
+        Story.assign_releases stories
+        expect(feature1.release).to eq(release1)
+        expect(feature2.release).to eq(release2)
+        expect(feature3.release).to be_nil
       end
+    end
+
+    describe '#feature?' do
+      example { Story.new(story_type: 'feature').should be_feature }
+      example { Story.new(story_type: 'bug').should_not be_feature }
+    end
+
+    describe '#release?' do
+      example { Story.new(story_type: 'release').should be_release }
+      example { Story.new(story_type: 'feature').should_not be_release }
+    end
+
+    describe '#has_release?' do
+      example { Story.new(release: 'a release').should have_release }
+      example { Story.new.should_not have_release }
     end
   end
 end

@@ -1,21 +1,32 @@
 module PivotalTracker
   class Story
+    attr_accessor :release
+
     def tags
       labels.nil? ? ['untagged'] : labels.split(',')
     end
 
-    def self.group_by_releases stories
-      result = {}
+    def self.assign_releases stories
+      releases = stories.select(&:release?)
+      index = 0
 
-      releases = stories.select{|s| s.story_type == 'release'}
-      indexes = releases.map{|r| stories.index(r)}.sort.unshift(-1)
-      indexes.each_with_index do |i, ii|
-        next if i < 0
-        start_index = indexes[ii-1] + 1
-        result[stories[i]] = stories[start_index...i]
+      stories.each_with_index do |s, ii|
+        if s.story_type == 'release'
+          index += 1
+        else
+          s.release = releases[index]
+        end
       end
+    end
 
-      result
+    [:feature, :bug, :release, :chore].each do |attr|
+      define_method "#{attr}?" do
+        story_type == attr.to_s
+      end
+    end
+
+    def has_release?
+      !release.nil?
     end
   end
 end
