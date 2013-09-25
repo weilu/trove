@@ -1,0 +1,1312 @@
+---
+- !ruby/object:PivotalTracker::Story
+  id: 57629218
+  url: http://www.pivotaltracker.com/story/show/57629218
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-10 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Setup development environment
+  description: We need 2 machines set up
+  story_type: chore
+  estimate: 
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629220
+  url: http://www.pivotaltracker.com/story/show/57629220
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-10 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Setup demo server
+  description: Should be accessible from outside the network, with basic auth
+  story_type: chore
+  estimate: 
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: deployment
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629222
+  url: http://www.pivotaltracker.com/story/show/57629222
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-10 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Admin should be able to login
+  description: Admin should be a special user type. We can create the first admin
+    user directly in the DB, but let's encrypt the password.
+  story_type: feature
+  estimate: 2
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629224
+  url: http://www.pivotaltracker.com/story/show/57629224
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-10 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Admin should be able to create new product
+  description: Product information includes title, description, price, SKU.
+  story_type: feature
+  estimate: 1
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629226
+  url: http://www.pivotaltracker.com/story/show/57629226
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-10 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Admin should be able to upload product photo
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629228
+  url: http://www.pivotaltracker.com/story/show/57629228
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-17 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Admin should be able to upload multiple product photos and mark one as the
+    primary
+  description: ''
+  story_type: feature
+  estimate: 3
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629230
+  url: http://www.pivotaltracker.com/story/show/57629230
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-17 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Shopper should see list of products, with primary photo as thumbnail
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629232
+  url: http://www.pivotaltracker.com/story/show/57629232
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-17 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Product browsing should be paginated, with 10 products per page
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629234
+  url: http://www.pivotaltracker.com/story/show/57629234
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-17 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Make product browsing pagination AJAXy
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping,usability
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629236
+  url: http://www.pivotaltracker.com/story/show/57629236
+  created_at: !ruby/object:DateTime 2013-09-09 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-17 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Admin should be able to import multiple new products from CSV file
+  description: ''
+  story_type: feature
+  estimate: 3
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629238
+  url: http://www.pivotaltracker.com/story/show/57629238
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-25 08:00:00.000000000 +08:00
+  project_id: 919838
+  name: Shopper should be able to click on a product, and see all product details,
+    including photos
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629240
+  url: http://www.pivotaltracker.com/story/show/57629240
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: !ruby/object:DateTime 2013-09-25 15:48:51.000000000 +08:00
+  project_id: 919838
+  name: Shopper should be able to add product to shopping cart
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: accepted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: cart,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629242
+  url: http://www.pivotaltracker.com/story/show/57629242
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to view contents of shopping cart
+  description: Cart icon in top right corner, with a number indicating how many items
+    in cart
+  story_type: feature
+  estimate: 2
+  current_state: delivered
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: cart,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629244
+  url: http://www.pivotaltracker.com/story/show/57629244
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to remove product from shopping cart
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: delivered
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: cart,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629246
+  url: http://www.pivotaltracker.com/story/show/57629246
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Cart manipulation should be AJAXy
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: finished
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: cart,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629248
+  url: http://www.pivotaltracker.com/story/show/57629248
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Some product photos not scaled properly when browsing products
+  description: ''
+  story_type: bug
+  estimate: 
+  current_state: started
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629250
+  url: http://www.pivotaltracker.com/story/show/57629250
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to recommend a product to a friend
+  description: Prompt for email address and personalized message, send email with
+    product details and message
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629252
+  url: http://www.pivotaltracker.com/story/show/57629252
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: configure solr for full text searching
+  description: ''
+  story_type: chore
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: search
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629254
+  url: http://www.pivotaltracker.com/story/show/57629254
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to search for product
+  description: One search field, search should look through product name, description,
+    and SKU
+  story_type: feature
+  estimate: 3
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: search,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629256
+  url: http://www.pivotaltracker.com/story/show/57629256
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Initial demo to investors
+  description: ''
+  story_type: release
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629258
+  url: http://www.pivotaltracker.com/story/show/57629258
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to enter credit card information and shipping address
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: checkout,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629260
+  url: http://www.pivotaltracker.com/story/show/57629260
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Integrate with payment gateway
+  description: ''
+  story_type: chore
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: checkout,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629262
+  url: http://www.pivotaltracker.com/story/show/57629262
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: When shopper submits order, authorize total product amount from payment gateway
+  description: ''
+  story_type: feature
+  estimate: 3
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: checkout,needs discussion,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629264
+  url: http://www.pivotaltracker.com/story/show/57629264
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: If system fails to authorize payment amount, display error message to shopper
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: checkout,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629266
+  url: http://www.pivotaltracker.com/story/show/57629266
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: If authorization is successful, show order number and confirmation message
+    to shopper
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: checkout,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629268
+  url: http://www.pivotaltracker.com/story/show/57629268
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Send notification email of order placement to admin
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,checkout,shopping
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629270
+  url: http://www.pivotaltracker.com/story/show/57629270
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to check status of order by entering name and order
+    number
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: orders
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629272
+  url: http://www.pivotaltracker.com/story/show/57629272
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to ask question about order
+  description: When checking status of order, shopper should have the option to ask
+    a question. This should send email to admin.
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: orders
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629274
+  url: http://www.pivotaltracker.com/story/show/57629274
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin can review all order questions and send responses to shoppers
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,orders
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629276
+  url: http://www.pivotaltracker.com/story/show/57629276
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Set up Engine Yard production environment
+  description: ''
+  story_type: chore
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: deployment
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629278
+  url: http://www.pivotaltracker.com/story/show/57629278
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Beta launch
+  description: ''
+  story_type: release
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: !ruby/object:DateTime 2013-10-14 08:00:00.000000000 +08:00
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629280
+  url: http://www.pivotaltracker.com/story/show/57629280
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to sign up for an account with email address
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: signup / signin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629282
+  url: http://www.pivotaltracker.com/story/show/57629282
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to reset forgotten password
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: signup / signin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629284
+  url: http://www.pivotaltracker.com/story/show/57629284
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to log out
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: signup / signin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629286
+  url: http://www.pivotaltracker.com/story/show/57629286
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: When checking out, shopper should have the option to sign in to their account
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: signup / signin
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629288
+  url: http://www.pivotaltracker.com/story/show/57629288
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to review order history
+  description: Show orders in last 60 days, with link to show older orders
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopper accounts
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629290
+  url: http://www.pivotaltracker.com/story/show/57629290
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to save credit card and address information
+    used in checkout
+  description: Credit card numbers should be stored encrypted
+  story_type: feature
+  estimate: 2
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopper accounts
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629292
+  url: http://www.pivotaltracker.com/story/show/57629292
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to save product to favorites
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopper accounts
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629294
+  url: http://www.pivotaltracker.com/story/show/57629294
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to review and remove product from favorites
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: shopper accounts
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629296
+  url: http://www.pivotaltracker.com/story/show/57629296
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Provide feedback to designer about look/feel of site
+  description: ''
+  story_type: chore
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: design
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629298
+  url: http://www.pivotaltracker.com/story/show/57629298
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Apply styling to all shopper facing parts of the site, based on assets from
+    designer
+  description: ''
+  story_type: feature
+  estimate: 3
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: design
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629300
+  url: http://www.pivotaltracker.com/story/show/57629300
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to post product reviews
+  description: ''
+  story_type: feature
+  estimate: 2
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: user generated content
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629302
+  url: http://www.pivotaltracker.com/story/show/57629302
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Signed in shopper should be able to rate product, by choosing 1-5 stars
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: user generated content
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629304
+  url: http://www.pivotaltracker.com/story/show/57629304
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: When shopper is browsing products, show average product rating and number
+    of reviews next to each product
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: user generated content
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629306
+  url: http://www.pivotaltracker.com/story/show/57629306
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Shopper should be able to read reviews for a product
+  description: ''
+  story_type: feature
+  estimate: 1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: user generated content
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629310
+  url: http://www.pivotaltracker.com/story/show/57629310
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin should be able to mark a product as featured
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,featured products
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629312
+  url: http://www.pivotaltracker.com/story/show/57629312
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Featured products should appear on the site landing page
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: featured products
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629314
+  url: http://www.pivotaltracker.com/story/show/57629314
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin should be able to create and edit blog articles
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,blog
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629318
+  url: http://www.pivotaltracker.com/story/show/57629318
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin should be able to save blog articles in draft mode
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,blog
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629320
+  url: http://www.pivotaltracker.com/story/show/57629320
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Published blog articles should appear on the site
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: blog
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629322
+  url: http://www.pivotaltracker.com/story/show/57629322
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: People should be able to subscribe to blog via RSS and Atom
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: blog
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629324
+  url: http://www.pivotaltracker.com/story/show/57629324
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin should be able to view monthly sales report
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,reporting
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629326
+  url: http://www.pivotaltracker.com/story/show/57629326
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Admin should be able to export orders as CSV file, based on date range and
+    order status
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: admin,reporting
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629328
+  url: http://www.pivotaltracker.com/story/show/57629328
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Request higher number of production slices, for scaling
+  description: ''
+  story_type: chore
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: deployment
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629330
+  url: http://www.pivotaltracker.com/story/show/57629330
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Full production launch
+  description: ''
+  story_type: release
+  estimate: 
+  current_state: unstarted
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629332
+  url: http://www.pivotaltracker.com/story/show/57629332
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Product browsing pagination not working in IE6
+  description: ''
+  story_type: bug
+  estimate: 
+  current_state: unscheduled
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: ie6
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629334
+  url: http://www.pivotaltracker.com/story/show/57629334
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Integrate with automated order fullfillment system
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unscheduled
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629336
+  url: http://www.pivotaltracker.com/story/show/57629336
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: native iPhone app to allow product browsing and checkout
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unscheduled
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: epic
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
+- !ruby/object:PivotalTracker::Story
+  id: 57629338
+  url: http://www.pivotaltracker.com/story/show/57629338
+  created_at: !ruby/object:DateTime 2013-09-16 08:00:00.000000000 +08:00
+  accepted_at: 
+  project_id: 919838
+  name: Facebook app, allowing users to share favorite products
+  description: ''
+  story_type: feature
+  estimate: -1
+  current_state: unscheduled
+  requested_by: Carl Coryell-Martin
+  owned_by: 
+  labels: 
+  jira_id: 
+  jira_url: 
+  other_id: 
+  zendesk_id: 
+  zendesk_url: 
+  integration_id: 
+  deadline: 
+  attachments: []
