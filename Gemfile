@@ -5,4 +5,5 @@ group :development do
   gem 'pivotal-tracker'
   gem 'pry'
   gem 'activesupport'
+  gem 'thor'
 end
