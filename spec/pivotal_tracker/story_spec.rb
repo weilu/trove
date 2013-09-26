@@ -44,5 +44,13 @@ module PivotalTracker
       example { Story.new(release: 'a release').should have_release }
       example { Story.new.should_not have_release }
     end
+
+    describe '#normalized_state' do
+      example { expect(Story.new(current_state: 'accepted').normalized_state).to eq 'accepted' }
+      example { expect(Story.new(current_state: 'delivered').normalized_state).to eq 'delivered' }
+      %w(finished started unstarted unscheduled rejected).each do |state|
+        example { expect(Story.new(current_state: state).normalized_state).to eq 'planned' }
+      end
+    end
   end
 end

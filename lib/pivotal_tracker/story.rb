@@ -28,5 +28,16 @@ module PivotalTracker
     def has_release?
       !release.nil?
     end
+
+    def normalized_state
+      case current_state
+      when 'accepted'
+        current_state
+      when 'delivered'
+        current_state
+      else
+        'planned'
+      end
+    end
   end
 end

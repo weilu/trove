@@ -11,12 +11,12 @@ class DataGenerator
 
   def generate
     CSV.generate do |csv|
-      csv << %w(release tag status stories)
+      csv << %w(release tag status points)
 
       @features.group_by do |f|
-        [f.release.name, f.tags.first, f.current_state]
+        [f.release.name, f.tags.first, f.normalized_state]
       end.each do |key, stories|
-        csv << key + [stories.count]
+        csv << key + [ stories.reduce(0){|memo, s| memo += s.estimate} ]
       end
     end
   end
