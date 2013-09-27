@@ -3,8 +3,8 @@ var margin = {top: 20, right: 40, bottom: 30, left: 20},
     height = 500 - margin.top - margin.bottom,
     barWidth = Math.floor(width / 19) - 1;
 
-var x = d3.scale.linear()
-    .range([barWidth / 2, width - barWidth / 2]);
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -43,20 +43,35 @@ d3.csv("population.csv", function(error, data) {
 
   // Compute the extent of the data set in age and years.
   var age1 = d3.max(data, function(d) { return d.age; }),
+      age0 = d3.min(data, function(d) { return d.age; }),
       year0 = d3.min(data, function(d) { return d.year; }),
       year1 = d3.max(data, function(d) { return d.year; }),
       year = year1;
 
-  // Update the scale domains.
-  x.domain([year1 - age1, year1]);
-  y.domain([0, d3.max(data, function(d) { return d.people; })]);
+  // Update the x scale domains.
+  x.domain(d3.set(data.map(function(d){ return d.age })).values());
 
   // Produce a map from year and birthyear to [male, female].
   data = d3.nest()
       .key(function(d) { return d.year; })
-      .key(function(d) { return d.year - d.age; })
+      .key(function(d) { return d.age; })
       .rollup(function(v) { return v.map(function(d) { return d.people; }); })
-      .map(data);
+      .map(data)
+
+  var maxTotal = 0
+  for(year in data) {
+    for(age in data[year]) {
+      var ageData = data[year][age]
+      var male = ageData[0]
+      var female = ageData[1]
+      var total = male + female
+      data[year][age] = [[0, male], [male, total]]
+
+      if(maxTotal < total) maxTotal = total
+    }
+  }
+  // Update the y scale domains.
+  y.domain([0, maxTotal]);
 
   // Add an axis to show the population values.
   svg.append("g")
@@ -69,30 +84,27 @@ d3.csv("population.csv", function(error, data) {
 
   // Add labeled rects for each birthyear (so that no enter or exit is required).
   var birthyear = birthyears.selectAll(".birthyear")
-      .data(d3.range(year0 - age1, year1 + 1, 5))
+      .data(d3.range(age0, age1 + 1, 5))
     .enter().append("g")
       .attr("class", "birthyear")
       .attr("transform", function(birthyear) { return "translate(" + x(birthyear) + ",0)"; });
 
   birthyear.selectAll("rect")
-      .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
+      .data(function(birthyear) { return data[year][birthyear]; })
     .enter().append("rect")
-      .attr("x", -barWidth / 2)
+      .attr("x", 0)
       .attr("width", barWidth)
-      .attr("y", y)
-      .attr("height", function(value) { return height - y(value); });
-
-  // Add labels to show birthyear.
-  birthyear.append("text")
-      .attr("y", height - 4)
-      .text(function(birthyear) { return birthyear; });
+      .attr("y", function(value) { return y(value[1]) })
+      .attr("height", function(value) {
+        return y(value[0]) - y(value[1]);
+      });
 
   // Add labels to show age (separate; not animated).
   svg.selectAll(".age")
       .data(d3.range(0, age1 + 1, 5))
     .enter().append("text")
       .attr("class", "age")
-      .attr("x", function(age) { return x(year - age); })
+      .attr("x", function(age) { return x(age) + barWidth/2; })
       .attr("y", height + 4)
       .attr("dy", ".71em")
       .text(function(age) { return age; });
