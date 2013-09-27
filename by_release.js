@@ -1,5 +1,5 @@
 function byRelease(){
-  var margin = {top: 20, right: 40, bottom: 30, left: 20},
+  var margin = {top: 70, right: 40, bottom: 50, left: 20},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom,
       barWidth = Math.floor(width / 19) - 1;
@@ -34,7 +34,7 @@ function byRelease(){
   // A label for the current release.
   var title = svg.append("text")
       .attr("class", "title")
-      .attr("dy", ".71em")
+      .attr("dy", "-20")
 
   d3.csv("stories.csv", function(error, data) {
 
@@ -128,13 +128,13 @@ function byRelease(){
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
     legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width - 28)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
     legend.append("text")
-      .attr("x", width - 24)
+      .attr("x", width - 34)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
