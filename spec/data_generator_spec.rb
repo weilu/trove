@@ -3,7 +3,7 @@ describe DataGenerator do
     PivotalTracker::Story.new({
       story_type: 'feature',
       name: "feature #{i}",
-      estimate: i,
+      estimate: options[:estimate] || i,
       labels: options[:labels],
       current_state: options[:current_state]
     })
@@ -17,6 +17,7 @@ describe DataGenerator do
       new_feature(2, labels: 'shopping', current_state: 'delivered'),
       new_feature(2, labels: 'checkout,admin', current_state: 'unstarted'),
       new_feature(2, labels: 'checkout', current_state: 'unstarted'),
+      new_feature(2, labels: 'checkout', current_state: 'unstarted', estimate: -1),
       PivotalTracker::Story.new(story_type: 'release', name: 'release 2'),
 
       PivotalTracker::Story.new(story_type: 'feature', name: 'feature 3')

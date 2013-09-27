@@ -16,7 +16,11 @@ class DataGenerator
       @features.group_by do |f|
         [f.release.name, f.tags.first, f.normalized_state]
       end.each do |key, stories|
-        csv << key + [ stories.reduce(0){|memo, s| memo += s.estimate} ]
+        csv << key + [
+          stories.reduce(0) do |memo, s|
+            s.estimate.to_i < 1 ? memo : memo += s.estimate.to_i
+          end
+        ]
       end
     end
   end
