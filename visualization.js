@@ -22,9 +22,9 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// A sliding container to hold the bars by birthyear.
-var birthyears = svg.append("g")
-    .attr("class", "birthyears");
+// A sliding container to hold the bars by tag.
+var tagContainer = svg.append("g")
+    .attr("class", "tagContainer");
 
 // A label for the current release.
 var title = svg.append("text")
@@ -35,13 +35,9 @@ var title = svg.append("text")
 d3.csv("stories.csv", function(error, data) {
 
   // Convert strings to numbers.
-  data.forEach(function(d) {
-    d.points = +d.points;
-    d.release = d.release;
-    d.tag = d.tag;
-  });
+  data.forEach(function(d) { d.points = +d.points });
 
-  // Compute the extent of the data set in tag and years.
+  // Compute the extent of the data set in releases.
   var releases = d3.set(data.map(function(d){ return d.release })).values(),
       release_index = releases.length - 1,
       release = releases[release_index]
@@ -89,20 +85,20 @@ d3.csv("stories.csv", function(error, data) {
     .filter(function(value) { return !value; })
       .classed("zero", true);
 
-  // Add labeled rects for each birthyear (so that no enter or exit is required).
-  var birthyear = birthyears.selectAll(".birthyear")
+  // Add labeled rects for each tag (so that no enter or exit is required).
+  var tag = tagContainer.selectAll(".tag")
       .data(tags)
     .enter().append("g")
-      .attr("class", "birthyear")
-      .attr("transform", function(birthyear) { return "translate(" + x(birthyear) + ",0)"; });
+      .attr("class", "tag")
+      .attr("transform", function(tag) { return "translate(" + x(tag) + ",0)"; });
 
   var filler = [
     ['accepted', 0, 0],
     ['delivered', 0, 0],
     ['planned', 0, 0]
   ]
-  birthyear.selectAll("rect")
-      .data(function(birthyear) { return data[release][birthyear] || filler })
+  tag.selectAll("rect")
+      .data(function(tag) { return data[release][tag] || filler })
     .enter().append("rect")
       .attr("class", function(value){ return value[0] })
       .attr("x", 0)
@@ -113,10 +109,10 @@ d3.csv("stories.csv", function(error, data) {
       });
 
   // Add labels to show age (separate; not animated).
-  svg.selectAll(".tag")
+  svg.selectAll(".tagLabel")
       .data(tags)
     .enter().append("text")
-      .attr("class", "tag")
+      .attr("class", "tagLabel")
       .attr("x", function(tag) { return x(tag) + barWidth/2; })
       .attr("y", height + 4)
       .attr("dy", ".71em")
@@ -137,9 +133,9 @@ d3.csv("stories.csv", function(error, data) {
     if (!(release in data)) return;
     title.text(release);
 
-    birthyear.selectAll("rect")
-      .data(function(birthyear) {
-        return data[release][birthyear] || filler
+    tag.selectAll("rect")
+      .data(function(tag) {
+        return data[release][tag] || filler
       })
     .transition()
       .duration(750)
