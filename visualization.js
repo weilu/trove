@@ -26,33 +26,34 @@ var svg = d3.select("body").append("svg")
 var birthyears = svg.append("g")
     .attr("class", "birthyears");
 
-// A label for the current year.
+// A label for the current release.
 var title = svg.append("text")
     .attr("class", "title")
     .attr("dy", ".71em")
-    .text(2000);
+    .text('Current release');
 
 d3.csv("stories.csv", function(error, data) {
 
   // Convert strings to numbers.
   data.forEach(function(d) {
     d.points = +d.points;
-    d.year = +d.year;
+    d.release = d.release;
     d.tag = d.tag;
   });
 
   // Compute the extent of the data set in tag and years.
-  var year0 = d3.min(data, function(d) { return d.year; }),
-      year1 = d3.max(data, function(d) { return d.year; }),
-      year = year1;
+  var releases = d3.set(data.map(function(d){ return d.release })).values(),
+      release_index = releases.length - 1,
+      release = releases[release_index]
+  title.text(release);
 
   // Update the x scale domains.
   var tags = d3.set(data.map(function(d){ return d.tag })).values()
   x.domain(tags);
 
-  // Produce a map from year and birthyear to [male, female].
+  // Produce a map from release tag, and status to points.
   data = d3.nest()
-      .key(function(d) { return d.year; })
+      .key(function(d) { return d.release; })
       .key(function(d) { return d.tag; })
       .key(function(d) { return d.status; })
       .rollup(function(v) { return v.map(function(d) { return d.points; }); })
@@ -61,13 +62,13 @@ d3.csv("stories.csv", function(error, data) {
   function corceData(d){ return d ? d[0] : 0 }
 
   var maxTotal = 0
-  for(year in data) {
-    for(tag in data[year]) {
-      var tagData = data[year][tag]
+  for(release in data) {
+    for(tag in data[release]) {
+      var tagData = data[release][tag]
       var accepted = corceData(tagData.accepted)
       var accDelivered = accepted + corceData(tagData.delivered)
       var total = accDelivered + corceData(tagData.planned)
-      data[year][tag] = [
+      data[release][tag] = [
         ['accepted', 0, accepted],
         ['delivered', accepted, accDelivered],
         ['planned', accDelivered, total]
@@ -101,7 +102,7 @@ d3.csv("stories.csv", function(error, data) {
     ['planned', 0, 0]
   ]
   birthyear.selectAll("rect")
-      .data(function(birthyear) { return data[year][birthyear] || filler })
+      .data(function(birthyear) { return data[release][birthyear] || filler })
     .enter().append("rect")
       .attr("class", function(value){ return value[0] })
       .attr("x", 0)
@@ -121,23 +122,24 @@ d3.csv("stories.csv", function(error, data) {
       .attr("dy", ".71em")
       .text(function(tag) { return tag; });
 
-  // Allow the arrow keys to change the displayed year.
+  // Allow the arrow keys to change the displayed release.
   window.focus();
   d3.select(window).on("keydown", function() {
     switch (d3.event.keyCode) {
-      case 37: year = Math.max(year0, year - 1); break;
-      case 39: year = Math.min(year1, year + 1); break;
+      case 37: release_index = Math.max(0, release_index - 1); break;
+      case 39: release_index = Math.min(releases.length - 1, release_index + 1); break;
     }
     update();
   });
 
   function update() {
-    if (!(year in data)) return;
-    title.text(year);
+    var release = releases[release_index]
+    if (!(release in data)) return;
+    title.text(release);
 
     birthyear.selectAll("rect")
       .data(function(birthyear) {
-        return data[year][birthyear] || filler
+        return data[release][birthyear] || filler
       })
     .transition()
       .duration(750)

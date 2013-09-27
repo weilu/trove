@@ -1,18 +1,18 @@
-year,tag,status,points
-1998,admin,accepted,11
-1998,shopping,accepted,6
-1998,cart,accepted,1
-1998,cart,delivered,3
-1998,cart,planned,1
-1998,shopping,planned,1
-1998,search,planned,3
-1999,checkout,planned,6
-1999,admin,planned,2
-1999,orders,planned,3
-2000,signup / signin,planned,5
-2000,shopper accounts,planned,5
-2000,design,planned,3
-2000,user generated content,planned,5
-2000,admin,planned,0
-2000,featured products,planned,0
-2000,blog,planned,0
+release,tag,status,points
+Initial demo to investors,admin,accepted,11
+Initial demo to investors,shopping,accepted,6
+Initial demo to investors,cart,accepted,1
+Initial demo to investors,cart,delivered,3
+Initial demo to investors,cart,planned,1
+Initial demo to investors,shopping,planned,1
+Initial demo to investors,search,planned,3
+Beta launch,checkout,planned,6
+Beta launch,admin,planned,2
+Beta launch,orders,planned,3
+Full production launch,signup / signin,planned,5
+Full production launch,shopper accounts,planned,5
+Full production launch,design,planned,3
+Full production launch,user generated content,planned,5
+Full production launch,admin,planned,0
+Full production launch,featured products,planned,0
+Full production launch,blog,planned,0
