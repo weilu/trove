@@ -29,7 +29,7 @@
     }
 
     .birthyear,
-    .age {
+    .tag {
       text-anchor: middle;
     }
 
@@ -37,13 +37,17 @@
       fill: #fff;
     }
 
-    rect {
-      fill-opacity: .6;
-      fill: #e377c2;
+    rect.accepted {
+      fill: #ce6dbd;
     }
 
-    rect:first-child {
-      fill: #1f77b4;
+    rect.delivered {
+      fill: #de9ed6;
+    }
+
+    rect.planned {
+      fill-opacity: .6;
+      fill: grey;
     }
 
     </style>
