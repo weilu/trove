@@ -34,7 +34,7 @@ class DataGenerator
       result = Hash.new{|hash, key| hash[key] = Hash.new(0) }
 
       @features.each do |s|
-        result[s.tags.first][s.release.name] += s.estimate.to_i if s.estimate.to_i > 0
+        result[s.tags.first][s.release.name] += [s.estimate.to_i, 0].max
       end
 
       result.each do |tag, release_counts|
