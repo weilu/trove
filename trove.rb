@@ -1,7 +1,8 @@
+#!/usr/bin/env ruby
 require 'thor'
 require_relative 'lib/data_generator'
 
-class Vistracker < Thor
+class Trove < Thor
   desc "generate TOKEN PROJECT_ID", "fetch and generate formatted story data for the given project"
   def generate(token, project_id)
     stories = fetch_stories token, project_id
@@ -32,4 +33,4 @@ class Vistracker < Thor
   end
 end
 
-Vistracker.start
+Trove.start
