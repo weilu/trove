@@ -108,15 +108,13 @@ d3.csv("stories.csv", function(error, data) {
         return y(value[1]) - y(value[2]);
       });
 
-  // Add labels to show age (separate; not animated).
-  svg.selectAll(".tagLabel")
-      .data(tags)
-    .enter().append("text")
-      .attr("class", "tagLabel")
-      .attr("x", function(tag) { return x(tag) + barWidth/2; })
-      .attr("y", height + 4)
-      .attr("dy", ".71em")
-      .text(function(tag) { return tag; });
+  tag.append("text")
+    .attr("y", function(tag, i) {
+      return i%2 == 0 ? height + 10 : height + 20
+    } )
+    .attr("x", function(tag) { return barWidth/2; })
+    .attr('fill', 'black')
+    .text(function(tag) { return tag; });
 
   // Allow the arrow keys to change the displayed release.
   window.focus();
