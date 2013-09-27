@@ -29,6 +29,11 @@ function summary(){
 
   var color = d3.scale.category20()
 
+  var title = svg.append("text")
+      .attr("class", "title")
+      .attr("dy", ".71em")
+      .text('All Releases');
+
   d3.csv("stories_aggregated.csv", function(error, data) {
     color.domain(d3.keys(data[0]).filter(function(key) { return key !== "tag"; }));
 

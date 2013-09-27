@@ -35,7 +35,6 @@ function byRelease(){
   var title = svg.append("text")
       .attr("class", "title")
       .attr("dy", ".71em")
-      .text('Current release');
 
   d3.csv("stories.csv", function(error, data) {
 
@@ -46,7 +45,7 @@ function byRelease(){
     var releases = d3.set(data.map(function(d){ return d.release })).values(),
         release_index = releases.length - 1,
         release = releases[release_index]
-    title.text(release);
+    title.text('Release: ' + release);
 
     // Update the x scale domains.
     var tags = d3.set(data.map(function(d){ return d.tag })).values()
@@ -154,7 +153,7 @@ function byRelease(){
     function update() {
       var release = releases[release_index]
       if (!(release in data)) return;
-      title.text(release);
+      title.text("Release: " + release);
 
       tag.selectAll("rect")
         .data(function(tag) {
