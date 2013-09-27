@@ -40,5 +40,21 @@ describe DataGenerator do
       ])
     end
   end
+
+  describe '#generate_summary' do
+    subject(:csv_data) { CSV.parse generator.generate_summary }
+
+    it 'generates headers' do
+      expect(csv_data[0]).to eq ['tag', 'release 1', 'release 2']
+    end
+
+    it 'populates the rest of the columns' do
+      expect(csv_data[1..-1]).to eq([
+        ['admin', '1', '0'],
+        ['shopping', '0', '2'],
+        ['checkout', '0', '4']
+      ])
+    end
+  end
 end
 
