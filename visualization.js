@@ -123,15 +123,13 @@ d3.csv("population.csv", function(error, data) {
     if (!(year in data)) return;
     title.text(year);
 
-    birthyears.transition()
-        .duration(750)
-        .attr("transform", "translate(" + (x(year1) - x(year)) + ",0)");
-
     birthyear.selectAll("rect")
-        .data(function(birthyear) { return data[year][birthyear] || [0, 0]; })
-      .transition()
-        .duration(750)
-        .attr("y", y)
-        .attr("height", function(value) { return height - y(value); });
+      .data(function(birthyear) { return data[year][birthyear]; })
+    .transition()
+      .duration(750)
+      .attr("y", function(value) { return y(value[1]) })
+      .attr("height", function(value) {
+        return y(value[0]) - y(value[1]);
+      });
   }
 });
