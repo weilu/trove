@@ -7,9 +7,11 @@ PivotalTracker releases visualized.
 
 ## Usage
 
-Check out the visualization with a sample project [here](http://weilu.github.io/trove/)
+Check out [the demo for a sample tracker project](http://weilu.github.io/trove/)
 
-To visualiza your own project, you will need your PivotalTracker API token (under profile) and project ID.
+To visualiza your own project, you will need your PivotalTracker API token (under profile) and project ID. 
+
+Clone this repo and cd into the project directory:
 
     bundle
     ruby ./trove.rb generate TOKEN PROJECT_ID
