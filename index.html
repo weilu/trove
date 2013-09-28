@@ -8,6 +8,21 @@
       font: 10px sans-serif;
     }
 
+    .instruction {
+      font: 16px Helvetica Neue;
+      fill: #aaa;
+    }
+
+    #by-release .instruction {
+      transition-property: opacity;
+      transition-duration: 0.3s;
+      opacity: 0;
+    }
+
+    #by-release:hover .instruction {
+      opacity: 1;
+    }
+
     .y.axis path {
       display: none;
     }

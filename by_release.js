@@ -36,6 +36,11 @@ function byRelease(){
       .attr("class", "title")
       .attr("dy", "-20")
 
+  var instruction = svg.append("text")
+      .attr("class", "instruction")
+      .attr("dy", "10")
+      .text('❄ Use ← and → keys to move between releases.')
+
   d3.csv("stories.csv", function(error, data) {
 
     // Convert strings to numbers.
@@ -144,8 +149,14 @@ function byRelease(){
     window.focus();
     d3.select(window).on("keydown", function() {
       switch (d3.event.keyCode) {
-        case 37: release_index = Math.max(0, release_index - 1); break;
-        case 39: release_index = Math.min(releases.length - 1, release_index + 1); break;
+        case 37:
+          release_index = Math.max(0, release_index - 1);
+          instruction.style('opacity', '0')
+          break;
+        case 39:
+          release_index = Math.min(releases.length - 1, release_index + 1);
+          instruction.style('opacity', '0')
+          break;
       }
       update();
     });
