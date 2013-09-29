@@ -1,5 +1,5 @@
 function byRelease(){
-  var margin = {top: 70, right: 40, bottom: 50, left: 20},
+  var margin = {top: 80, right: 40, bottom: 80, left: 20},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom,
       barWidth = Math.floor(width / 19) - 1;
@@ -93,6 +93,11 @@ function byRelease(){
       .selectAll("g")
       .filter(function(value) { return !value; })
         .classed("zero", true);
+
+    // Axis label
+    svg.append('text')
+      .attr({'class': 'axis-label', 'x': 450, 'y': 390, 'text-anchor': 'middle'})
+      .text('Features by primary label (i.e. first/epic label)');
 
     // Add labeled rects for each tag (so that no enter or exit is required).
     var tag = tagContainer.selectAll(".tag")
