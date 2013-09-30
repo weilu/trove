@@ -5,7 +5,7 @@ byReleaseGraph.draw = function() {
 
     var color = d3.scale.ordinal()
         .domain(['accepted', 'delivered', 'planned'])
-        .range(["#669900", "#ffbb33", "#cccccc"]);
+        .range(["#669900", "#ffbb33", "#909090"]);
 
     var instruction = svg.append("text")
         .attr("class", "instruction")
