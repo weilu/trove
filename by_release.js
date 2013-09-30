@@ -1,5 +1,5 @@
 function byRelease(){
-  var margin = {top: 80, right: 40, bottom: 80, left: 20},
+  var margin = {top: 80, right: 40, bottom: 110, left: 20},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom,
       barWidth = Math.floor(width / 19) - 1;
@@ -96,7 +96,10 @@ function byRelease(){
 
     // Axis label
     svg.append('text')
-      .attr({'class': 'axis-label', 'x': 450, 'y': 390, 'text-anchor': 'middle'})
+      .attr('class', 'axis-label')
+      .attr('x', 450)
+      .attr('y', height + margin.bottom - 10)
+      .attr('text-anchor', 'middle')
       .text('Features by primary label (i.e. first/epic label)');
 
     // Add labeled rects for each tag (so that no enter or exit is required).
@@ -123,12 +126,13 @@ function byRelease(){
         });
 
     tag.append("text")
-      .attr("y", function(tag, i) {
-        return i%2 == 0 ? height + 10 : height + 20
-      } )
-      .attr("x", function(tag) { return barWidth/2; })
+      .text(function(tag) { return tag; })
+      .attr("y", function(tag, i) { return height + 10 } )
+      .attr("x", function(tag) { return barWidth/2 - this.getComputedTextLength(); })
+      .attr('transform', function(tag) {
+        return "rotate(-45 " + barWidth/2 + " " + (height+10) + ")"
+       })
       .attr('fill', 'black')
-      .text(function(tag) { return tag; });
 
     //legend
     var legend = svg.selectAll(".legend")
