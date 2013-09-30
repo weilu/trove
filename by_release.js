@@ -31,27 +31,23 @@ byReleaseGraph.draw = function() {
           .key(function(d) { return d.release; })
           .key(function(d) { return d.tag; })
           .key(function(d) { return d.status; })
-          .rollup(function(v) { return v.map(function(d) { return d.points; }); })
+          .rollup(function(d) { return d[0].points; })
           .map(data)
-
-      function corceData(d){ return d ? d[0] : 0 }
 
       var maxTotal = 0
       for(release in data) {
         for(tag in data[release]) {
-          var tagData = data[release][tag]
-          var accepted = corceData(tagData.accepted)
-          var accDelivered = accepted + corceData(tagData.delivered)
-          var total = accDelivered + corceData(tagData.planned)
-          data[release][tag] = [
-            ['accepted', 0, accepted],
-            ['delivered', accepted, accDelivered],
-            ['planned', accDelivered, total]
-          ]
+          var y0 = 0
+          data[release][tag] = color.domain().map(function(state){
+            var points = data[release][tag][state]
+            return { state: state, y0: y0, y1: y0 += (points ? points : 0)}
+          })
 
+          var total = data[release][tag][color.domain().length-1].y1
           if(maxTotal < total) maxTotal = total
         }
       }
+
       // Update the y scale domains.
       y.domain([0, maxTotal]);
 
@@ -61,20 +57,18 @@ byReleaseGraph.draw = function() {
           .attr("class", "tag")
           .attr("transform", function(tag) { return "translate(" + x(tag) + ",0)"; });
 
-      var filler = [
-        ['accepted', 0, 0],
-        ['delivered', 0, 0],
-        ['planned', 0, 0]
-      ]
+      var filler = color.domain().map(function(state){
+        return { state: state, y0: 0, y1: 0 }
+      })
       tag.selectAll("rect")
           .data(function(tag) { return data[release][tag] || filler })
         .enter().append("rect")
-          .style("fill", function(value){ return color(value[0]) })
+          .style("fill", function(d){ return color(d.state) })
           .attr("x", 0)
           .attr("width", barWidth)
-          .attr("y", function(value) { return y(value[2]) })
-          .attr("height", function(value) {
-            return y(value[1]) - y(value[2]);
+          .attr("y", function(d) { return y(d.y1) })
+          .attr("height", function(d) {
+            return y(d.y0) - y(d.y1);
           });
 
       var xLabelText = tag.append("text").text(function(d) { return d })
@@ -103,15 +97,13 @@ byReleaseGraph.draw = function() {
         title.text("Release: " + release);
 
         tag.selectAll("rect")
-          .data(function(tag) {
-            return data[release][tag] || filler
-          })
+          .data(function(tag) { return data[release][tag] || filler })
         .transition()
           .duration(750)
-          .attr("class", function(value){ return value[0] })
-          .attr("y", function(value) { return y(value[2]) })
-          .attr("height", function(value) {
-            return y(value[1]) - y(value[2]);
+          .style("fill", function(d){ return color(d.state) })
+          .attr("y", function(d) { return y(d.y1) })
+          .attr("height", function(d) {
+            return y(d.y0) - y(d.y1);
           });
       }
     }.bind(this));

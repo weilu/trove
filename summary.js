@@ -37,7 +37,6 @@ summaryGraph.draw = function(){
       tag.selectAll("rect")
           .data(function(d) { return d.points })
         .enter().append("rect")
-          .attr("class", function(value){ return value.name }) // TODO: remove this or fill
           .attr("x", 0)
           .attr("width", barWidth)
           .attr("y", function(value) { return y(value.y1) })
