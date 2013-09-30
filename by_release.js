@@ -29,7 +29,7 @@ function byRelease(){
 
   var color = d3.scale.ordinal()
       .domain(['accepted', 'delivered', 'planned'])
-      .range(["#ce6dbd", "#de9ed6", "#808080"]);
+      .range(["#669900", "#ffbb33", "#cccccc"]);
 
   // A label for the current release.
   var title = svg.append("text")
