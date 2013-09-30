@@ -45,3 +45,52 @@ function Trove(containerSelector) {
   this.config = config(containerSelector)
 }
 
+Trove.prototype.addLegend = function(color){
+  with(this.config) {
+    var legend = svg.selectAll(".legend")
+      .data(color.domain().slice())
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+      .attr("x", width - 28)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+    legend.append("text")
+      .attr("x", width - 34)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+  }
+}
+
+Trove.prototype.decorateAxes = function(tag) {
+  with(this.config) {
+    // x-Axis labels
+    tag.attr("y", height + 10 )
+      .attr("x", function() { return barWidth/2 - this.getComputedTextLength(); })
+      .attr('transform', "rotate(-45 " + barWidth/2 + " " + (height+10) + ")")
+      .attr('fill', 'black')
+
+    // x-Axis unit label
+    svg.append('text')
+      .attr('class', 'axis-label')
+      .attr('x', 450)
+      .attr('y', height + margin.bottom - 10)
+      .attr('text-anchor', 'middle')
+      .text('Features by primary label (i.e. first/epic label)');
+
+    // y-Axis lines
+    svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + width + ",0)")
+        .call(yAxis)
+      .selectAll("g")
+      .filter(function(value) { return !value; })
+        .classed("zero", true);
+  }
+}
