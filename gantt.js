@@ -1,8 +1,8 @@
 var config = function() {
   var margin = {top: 80, right: 50, bottom: 110, left: 20},
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom,
-      xOffset = 100;
+      xOffset = 100,
+      width = 960 - margin.left - margin.right - xOffset,
+      height = 500 - margin.top - margin.bottom;
 
   var y = d3.scale.ordinal()
         .rangeRoundBands([0, height]);
@@ -14,6 +14,12 @@ var config = function() {
        .scale(x)
        .tickSize(height)
 
+  var yAxis = d3.svg.axis()
+       .scale(y)
+       .orient("left")
+       .tickSize(-width)
+       .tickFormat('')
+
   return {
     margin: margin,
     width: width,
@@ -21,6 +27,7 @@ var config = function() {
     x: x,
     y: y,
     xAxis: xAxis,
+    yAxis: yAxis,
     xOffset: xOffset
   }
 }
@@ -44,6 +51,7 @@ ganttChart.draw = function(){
       // Update the y scale domains.
       var tags = d3.set(data.map(function(d){ return d.tag })).values()
       y.domain(tags);
+      var barHeight = Math.floor(height / tags.length) - 1
 
       // Produce a map from release tag, and status to points.
       data = d3.nest()
@@ -101,7 +109,7 @@ ganttChart.draw = function(){
         .enter().append("rect")
           .style("fill", function(d){ return color(d.state) })
           .attr("x", function(d) { return x(d.y0) })
-          .attr("height", Math.floor(height / tags.length) - 1)
+          .attr("height", barHeight)
           .attr("y", 0)
           .attr("width", function(d) {
            return x(d.y1) - x(d.y0) ;
@@ -121,13 +129,31 @@ ganttChart.draw = function(){
       .attr('x', function() { return x(maxTotal/2) - this.getComputedTextLength()/2 })
 
     // x-Axis lines
-    svg.append("g")
+    var xLines = svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(" + xOffset + ", 0)")
         .call(xAxis)
-      .selectAll("g")
-      .filter(function(value) { return value % maxTotal === 0; })
+    xLines.selectAll("g")
+      .filter(function(value) { return value % maxTotal === 0 && value !== (maxTotal * releases.length); })
         .classed("zero", true);
+    xLines.append("text")
+      .text("Features by primary label")
+      .attr("class", "label")
+      .attr("transform", "rotate(90)")
+      .attr("y", -6)
+
+    var yLines = svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + xOffset + ", " + barHeight/2 + ")")
+        .call(yAxis)
+    yLines.selectAll("g")
+      .filter(function(value) { return value === tags[tags.length - 1]; })
+        .classed("zero", true);
+    xLines.append("text")
+      .text("Points per release")
+      .attr("class", "label")
+      .attr("y", height - 10)
+      .attr("x", function() { return width - this.getComputedTextLength() })
 
       this.addLegend(color)
     }.bind(this));
