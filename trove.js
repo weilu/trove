@@ -1,5 +1,14 @@
-function Trove(containerSelector) {
-  function config(containerSelector){
+function Trove(containerSelector, config) {
+
+  function extend(destination, source) {
+    for(var property in source) {
+      if(source.hasOwnProperty(property))
+        destination[property] = source[property]
+    }
+    return destination
+  }
+
+  function corceConfig(containerSelector){
     var margin = {top: 80, right: 50, bottom: 110, left: 20},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom,
@@ -29,7 +38,7 @@ function Trove(containerSelector) {
         .attr("class", "title")
         .attr("dy", "-20")
 
-    return {
+    return extend({
       margin: margin,
       width: width,
       height: height,
@@ -39,10 +48,10 @@ function Trove(containerSelector) {
       yAxis: yAxis,
       svg: svg,
       title: title
-    }
+    }, config)
   }
 
-  this.config = config(containerSelector)
+  this.config = corceConfig(containerSelector)
 }
 
 Trove.prototype.addLegend = function(color){

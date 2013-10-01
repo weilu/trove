@@ -23,16 +23,19 @@
       opacity: 1;
     }
 
+    .x.axis path,
     .y.axis path {
       display: none;
     }
 
+    .x.axis line,
     .y.axis line {
       stroke: #fff;
       stroke-opacity: .2;
       shape-rendering: crispEdges;
     }
 
+    .x.axis .zero line,
     .y.axis .zero line {
       stroke: #000;
       stroke-opacity: 1;
@@ -54,9 +57,11 @@
   <body>
     <div id='by-release'></div>
     <div id='summary'></div>
+    <div id='gantt'></div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="trove.js"></script>
     <script src="by_release.js"></script>
     <script src="summary.js"></script>
+    <script src="gantt.js"></script>
   </body>
 </html>
