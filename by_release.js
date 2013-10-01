@@ -76,7 +76,6 @@ byReleaseGraph.draw = function() {
       this.addLegend(color)
 
       // Allow the arrow keys to change the displayed release.
-      window.focus();
       d3.select(window).on("keydown", function() {
         switch (d3.event.keyCode) {
           case 37:
