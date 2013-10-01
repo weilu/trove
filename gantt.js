@@ -155,7 +155,7 @@ ganttChart.draw = function(){
       .attr("y", height - 10)
       .attr("x", function() { return width - this.getComputedTextLength() })
 
-      this.addLegend(color)
+      this.addLegend(color, -100)
     }.bind(this));
   }
 }

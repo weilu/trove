@@ -54,22 +54,23 @@ function Trove(containerSelector, config) {
   this.config = corceConfig(containerSelector)
 }
 
-Trove.prototype.addLegend = function(color){
+Trove.prototype.addLegend = function(color, legendXoffset){
+  var legendXoffset = legendXoffset || 40;
+
   with(this.config) {
     var legend = svg.selectAll(".legend")
       .data(color.domain().slice())
       .enter().append("g")
       .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(" + (width - legendXoffset) + "," + i * 20 + ")"; });
 
     legend.append("rect")
-      .attr("x", width - 28)
+      .attr("x", 6)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
     legend.append("text")
-      .attr("x", width - 34)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
