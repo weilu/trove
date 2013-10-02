@@ -141,7 +141,9 @@ ganttChart.draw = function(){
       .attr("class", "label")
       .attr("transform", "rotate(90)")
       .attr("y", -6)
+      .attr("x", function() { return height - this.getComputedTextLength() - 10 })
 
+    // y-Axis lines
     var yLines = svg.append("g")
         .attr("class", "y axis")
         .attr("transform", "translate(" + xOffset + ", " + barHeight/2 + ")")
@@ -149,10 +151,10 @@ ganttChart.draw = function(){
     yLines.selectAll("g")
       .filter(function(value) { return value === tags[tags.length - 1]; })
         .classed("zero", true);
-    xLines.append("text")
+    yLines.append("text")
       .text("Points per release")
       .attr("class", "label")
-      .attr("y", height - 10)
+      .attr("y", height - 20)
       .attr("x", function() { return width - this.getComputedTextLength() })
 
       this.addLegend(color, -100)
