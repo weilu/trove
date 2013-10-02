@@ -1,6 +1,6 @@
 var config = function() {
   var margin = {top: 80, right: 50, bottom: 110, left: 20},
-      xOffset = 100,
+      xOffset = 120,
       width = 960 - margin.left - margin.right - xOffset,
       height = 500 - margin.top - margin.bottom;
 
@@ -36,6 +36,7 @@ var ganttChart = new Trove('#gantt', config())
 
 ganttChart.draw = function(){
   with(this.config) {
+    title.text('Feature breakdown per release');
     var color = d3.scale.ordinal()
         .domain(['accepted', 'delivered', 'planned'])
         .range(["#669900", "#ffbb33", "#909090"]);
@@ -115,12 +116,11 @@ ganttChart.draw = function(){
            return x(d.y1) - x(d.y0) ;
           });
 
-    // x-Axis labels
+    // y-Axis labels
     svg.selectAll('[release-index="0"] .tag').append("text")
       .text(function(d) { return d })
-      .attr("y", 10 )
+      .attr("y", barHeight / 2 + 4 )
       .attr("x", function() { return -this.getComputedTextLength() - 10 })
-      .attr('fill', 'black')
 
     // release labels on x-Axis
     release.append('text')
@@ -137,10 +137,10 @@ ganttChart.draw = function(){
       .filter(function(value) { return value % maxTotal === 0 && value !== (maxTotal * releases.length); })
         .classed("zero", true);
     xLines.append("text")
-      .text("Features by primary label")
+      .text("Features by first label")
       .attr("class", "label")
       .attr("transform", "rotate(90)")
-      .attr("y", -6)
+      .attr("y", -4)
       .attr("x", function() { return height - this.getComputedTextLength() - 10 })
 
     // y-Axis lines

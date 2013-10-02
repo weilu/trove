@@ -13,6 +13,7 @@ function Trove(containerSelector, config) {
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom,
         barWidth = Math.floor(width / 19) - 1;
+        //TODO: fix hardcoded 19
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width]);
@@ -24,7 +25,13 @@ function Trove(containerSelector, config) {
         .scale(y)
         .orient("right")
         .tickSize(-width)
-        .tickFormat(function(d) { return d + " points"; });
+        .tickFormat(function(d) { return d });
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .tickSize(height)
+        .tickFormat('');
 
     // An SVG element with a bottom-right origin.
     var svg = d3.select(containerSelector).append("svg")
@@ -36,7 +43,7 @@ function Trove(containerSelector, config) {
     // A label for the current release.
     var title = svg.append("text")
         .attr("class", "title")
-        .attr("dy", "-20")
+        .attr("dy", "-30")
 
     return extend({
       margin: margin,
@@ -46,6 +53,7 @@ function Trove(containerSelector, config) {
       x: x,
       y: y,
       yAxis: yAxis,
+      xAxis: xAxis,
       svg: svg,
       title: title
     }, config)
@@ -55,7 +63,7 @@ function Trove(containerSelector, config) {
 }
 
 Trove.prototype.addLegend = function(color, legendXoffset){
-  var legendXoffset = legendXoffset || 40;
+  var legendXoffset = legendXoffset || 50;
 
   with(this.config) {
     var legend = svg.selectAll(".legend")
@@ -84,15 +92,6 @@ Trove.prototype.decorateAxes = function(tag) {
     tag.attr("y", height + 10 )
       .attr("x", function() { return barWidth/2 - this.getComputedTextLength(); })
       .attr('transform', "rotate(-45 " + barWidth/2 + " " + (height+10) + ")")
-      .attr('fill', 'black')
-
-    // x-Axis unit label
-    svg.append('text')
-      .attr('class', 'axis-label')
-      .attr('x', 450)
-      .attr('y', height + margin.bottom - 10)
-      .attr('text-anchor', 'middle')
-      .text('Features by primary label (i.e. first/epic label)');
 
     // y-Axis lines
     svg.append("g")
@@ -102,5 +101,30 @@ Trove.prototype.decorateAxes = function(tag) {
       .selectAll("g")
       .filter(function(value) { return !value; })
         .classed("zero", true);
+
+    // x-Axis unit label
+    svg.append('text')
+      .attr('class', 'label')
+      .attr('x', function(){ return width - this.getComputedTextLength() - 65 } )
+      .attr('y', height - 5)
+      .attr('text-anchor', 'middle')
+      .text('Features by first label');
+
+    // x-Axis lines
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(" + (barWidth - 10) + ",0)")
+        .call(xAxis)
+      .selectAll("g")
+        .filter(function(value) {
+          return value === x.domain()[x.domain().length - 1]; })
+        .classed("zero", true)
+        // y-Axis unit label
+        .append('text')
+          .attr('class', 'label')
+          .attr("transform", "rotate(-90)")
+          .attr('y', -5)
+          .attr('text-anchor', 'end')
+          .text('points');
   }
 }
