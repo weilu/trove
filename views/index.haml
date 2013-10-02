@@ -1,0 +1,73 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    :css
+      svg {
+        font: 12px sans-serif;
+      }
+
+      .instruction {
+        font: 16px Helvetica Neue;
+        fill: #aaa;
+      }
+
+      #by-release .instruction {
+        transition-property: opacity;
+        transition-duration: 0.3s;
+        opacity: 0;
+      }
+
+      #by-release:hover .instruction {
+        opacity: 1;
+      }
+
+      .x.axis path,
+      .y.axis path {
+        display: none;
+      }
+
+      line {
+        shape-rendering: crispEdges;
+      }
+
+      .x.axis .zero line,
+      .y.axis .zero line {
+        stroke: #666 !important;
+        stroke-opacity: 1 !important;
+      }
+
+      #gantt .x.axis line,
+      .y.axis line {
+        stroke: #fff;
+        stroke-opacity: .2;
+      }
+
+      #gantt .y.axis line {
+        stroke: #808080;
+      }
+
+      .title {
+        font: 300 50px Helvetica Neue;
+        fill: #666;
+      }
+
+      .label {
+        opacity: 0.6;
+      }
+
+  %body
+    #by-release
+    #summary
+    #gantt
+    %script{src: "vendor/d3.v3.min.js"}
+    %script{src: "vendor/colorbrewer.js"}
+    %script{src: "trove.js"}
+    %script{src: "by_release.js"}
+    %script{src: "summary.js"}
+    %script{src: "gantt.js"}
+    :javascript
+      byReleaseChart().draw("#{credentials}")
+      summaryChart().draw("#{credentials}")
+      ganttChart().draw("#{credentials}")
+
