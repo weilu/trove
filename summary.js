@@ -23,6 +23,8 @@ summaryGraph.draw = function(){
       // Update the x scale domains.
       var tags = data.map(function(d){ return d.tag })
       x.domain(tags);
+      this.config.tagWidth = Math.floor(width / tags.length) - 1
+      this.config.barWidth = Math.min(tagWidth, 45);
 
       // Update the y scale domains.
       y.domain([0, d3.max(data, function(d){ return d.total })]);

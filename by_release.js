@@ -25,6 +25,8 @@ byReleaseGraph.draw = function() {
       // Update the x scale domains.
       var tags = d3.set(data.map(function(d){ return d.tag })).values()
       x.domain(tags);
+      this.config.tagWidth = Math.floor(width / tags.length) - 1
+      this.config.barWidth = Math.min(tagWidth, 45);
 
       // Produce a map from release tag, and status to points.
       data = d3.nest()

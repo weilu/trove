@@ -11,9 +11,7 @@ function Trove(containerSelector, config) {
   function corceConfig(containerSelector){
     var margin = {top: 80, right: 50, bottom: 110, left: 20},
         width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom,
-        barWidth = Math.floor(width / 19) - 1;
-        //TODO: fix hardcoded 19
+        height = 500 - margin.top - margin.bottom
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width]);
@@ -49,7 +47,6 @@ function Trove(containerSelector, config) {
       margin: margin,
       width: width,
       height: height,
-      barWidth: barWidth,
       x: x,
       y: y,
       yAxis: yAxis,
@@ -113,7 +110,7 @@ Trove.prototype.decorateAxes = function(tag) {
     // x-Axis lines
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(" + (barWidth - 10) + ",0)")
+        .attr("transform", "translate(" + (tagWidth/2) + ",0)")
         .call(xAxis)
       .selectAll("g")
         .filter(function(value) {

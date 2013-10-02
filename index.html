@@ -28,21 +28,24 @@
       display: none;
     }
 
-    .x.axis line,
-    .y.axis line {
-      stroke: #fff;
-      stroke-opacity: .2;
+    line {
       shape-rendering: crispEdges;
-    }
-
-    #gantt .y.axis line {
-      stroke: #808080;
     }
 
     .x.axis .zero line,
     .y.axis .zero line {
-      stroke: #666;
-      stroke-opacity: 1;
+      stroke: #666 !important;
+      stroke-opacity: 1 !important;
+    }
+
+    #gantt .x.axis line,
+    .y.axis line {
+      stroke: #fff;
+      stroke-opacity: .2;
+    }
+
+    #gantt .y.axis line {
+      stroke: #808080;
     }
 
     .title {
