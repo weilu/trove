@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require_relative '../app'
 require 'rspec'
 require 'rack/test'
+require 'pry'
 
 describe 'Trove app' do
   include Rack::Test::Methods
@@ -38,6 +39,33 @@ describe 'Trove app' do
       %w(byReleaseChart summaryChart ganttChart).each do |chart|
         its(:body) { should include("#{chart}().draw('#{token}#{project_id}')") }
       end
+    end
+  end
+
+  describe 'POST /' do
+    let(:token) { 'longasstoken' }
+    let(:project_id) { 'myproject' }
+    let(:do_request) { post "/", tracker_api_token: token, project_id: project_id }
+
+    before do
+      Trove.any_instance.stub(:generate)
+      Trove.any_instance.stub(:aggregate)
+    end
+
+    it 'generates data using Trove' do
+      trove = double(:trove)
+      Trove.should_receive(:new).and_return(trove)
+      trove.should_receive(:generate).with(token, project_id)
+      trove.should_receive(:aggregate).with(token, project_id)
+
+      do_request
+    end
+
+    it 'redirects to GET / with params' do
+      do_request
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.fullpath).to eq("/?tracker_api_token=#{token}&project_id=#{project_id}")
     end
   end
 end
