@@ -9,4 +9,5 @@ gem 'thor'
 group :development do
   gem 'rspec'
   gem 'pry'
+  gem 'rack-test'
 end
