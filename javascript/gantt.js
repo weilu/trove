@@ -41,7 +41,7 @@ ganttChart.draw = function(){
         .domain(['accepted', 'delivered', 'planned'])
         .range(["#669900", "#ffbb33", "#909090"]);
 
-    d3.csv("../data/stories.csv", function(error, data) {
+    d3.csv("data/stories.csv", function(error, data) {
       // Convert strings to numbers.
       data.forEach(function(d) { d.points = +d.points });
 

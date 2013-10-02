@@ -6,4 +6,5 @@ group :development do
   gem 'pry'
   gem 'activesupport'
   gem 'thor'
+  gem 'sinatra'
 end

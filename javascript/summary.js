@@ -8,7 +8,7 @@ summaryGraph.draw = function(){
 
     title.text('All Releases');
 
-    d3.csv("../data/stories_aggregated.csv", function(error, data) {
+    d3.csv("data/stories_aggregated.csv", function(error, data) {
       color.domain(d3.keys(data[0]).filter(function(key) {
         return key !== "tag";
       }));
