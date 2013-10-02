@@ -3,7 +3,9 @@ var summaryGraph = new Trove('#summary')
 summaryGraph.draw = function(){
   with(this.config) {
 
-    var color = d3.scale.category20()
+    var color = d3.scale.ordinal()
+    .range(colorbrewer.Spectral[11])
+
     title.text('All Releases');
 
     d3.csv("stories_aggregated.csv", function(error, data) {
