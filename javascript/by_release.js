@@ -12,7 +12,7 @@ byReleaseGraph.draw = function() {
         .attr("dy", "10")
         .text('Use ← and → keys to move between releases.')
 
-    d3.csv("stories.csv", function(error, data) {
+    d3.csv("../data/stories.csv", function(error, data) {
       // Convert strings to numbers.
       data.forEach(function(d) { d.points = +d.points });
 
