@@ -57,9 +57,15 @@
       }
 
   %body
-    #by-release
-    #summary
-    #gantt
+    .container
+      .chart#by-release
+      .chart#summary
+      .chart#gantt
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", rel: "stylesheet"}/
+    %script{src: "//code.jquery.com/jquery.js"}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+
     %script{src: "vendor/d3.v3.min.js"}
     %script{src: "vendor/colorbrewer.js"}
     %script{src: "trove.js"}
