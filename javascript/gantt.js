@@ -17,8 +17,8 @@ function ganttChart(){
 
     var yAxis = d3.svg.axis()
          .scale(y)
-         .orient("left")
-         .tickSize(-width)
+         .orient("right")
+         .tickSize(width)
          .tickFormat('')
 
     return {
@@ -54,7 +54,8 @@ function ganttChart(){
         // Update the y scale domains.
         var tags = d3.set(data.map(function(d){ return d.tag })).values()
         y.domain(tags);
-        var barHeight = Math.floor(height / tags.length) - 1
+        this.config.tagHeight = Math.floor(height / tags.length) - 1
+        this.config.barHeight = Math.min(tagHeight, 45);
 
         // Produce a map from release tag, and status to points.
         data = d3.nest()
@@ -148,7 +149,7 @@ function ganttChart(){
       // y-Axis lines
       var yLines = svg.append("g")
           .attr("class", "y axis")
-          .attr("transform", "translate(" + xOffset + ", " + barHeight/2 + ")")
+          .attr("transform", "translate(" + xOffset + ", " + barHeight + ")")
           .call(yAxis)
       yLines.selectAll("g")
         .filter(function(value) { return value === tags[tags.length - 1]; })
