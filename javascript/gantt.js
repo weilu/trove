@@ -147,13 +147,16 @@ function ganttChart(){
         .attr("x", function() { return height - this.getComputedTextLength() - 10 })
 
       // y-Axis lines
+      var opacity = barHeight === 45 ? '0' : '1'
       var yLines = svg.append("g")
           .attr("class", "y axis")
-          .attr("transform", "translate(" + xOffset + ", " + barHeight + ")")
+          .attr("transform", "translate(" + xOffset + ", " + tagHeight/2 + ")")
           .call(yAxis)
       yLines.selectAll("g")
+          .style("opacity", opacity)
         .filter(function(value) { return value === tags[tags.length - 1]; })
-          .classed("zero", true);
+          .classed("zero", true)
+          .style("opacity", 1)
       yLines.append("text")
         .text("Points per release")
         .attr("class", "label")
