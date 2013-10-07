@@ -56,11 +56,41 @@
         opacity: 0.6;
       }
 
+      #footer {
+        line-height: 80px;
+        background-color: #f5f5f5;
+      }
+
+      #footer .container {
+        text-align: right;
+      }
   %body
     .container
       .chart#by-release
       .chart#summary
       .chart#gantt
+    #footer
+      .container
+        %a{data: {toggle: 'modal'}, href: '#modal', class: 'btn btn-primary btn-lg'} Visualize My Project
+
+    #modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title Visualize My Project
+          .modal-body
+            %form#form{role: "form", method: 'post'}
+              .form-group
+                %label{for: "token"} Tracker API token
+                %input#toke.form-control{name: 'tracker_api_token'}/
+              .form-group
+                %label{for: "project_id"} Project ID
+                %input#project_id.form-control{name: 'project_id'}/
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            %button.btn.btn-primary{type: "submit", form: "form"} Visualize!
+
     %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
     %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", rel: "stylesheet"}/
     %script{src: "//code.jquery.com/jquery.js"}
@@ -76,4 +106,5 @@
       byReleaseChart().draw('#{credentials}')
       summaryChart().draw('#{credentials}')
       ganttChart().draw('#{credentials}')
+      if(window.location.search === '') $('#modal').modal('show')
 
