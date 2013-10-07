@@ -1,0 +1,3 @@
+javascript/data/*.csv
+!javascript/data/stories.csv
+!javascript/data/stories_aggregated.csv
