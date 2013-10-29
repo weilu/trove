@@ -3,6 +3,7 @@ require_relative '../trove'
 
 class DataSlave
   include Sidekiq::Worker
+  sidekiq_options :queue => :data_slave, :retry => false, :backtrace => true
 
   def perform(token, project_id)
     trove = Trove.new
