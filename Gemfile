@@ -6,6 +6,7 @@ gem 'pivotal-tracker'
 gem 'activesupport'
 gem 'thor'
 gem 'unicorn'
+gem 'sidekiq'
 
 group :development do
   gem 'rspec'
