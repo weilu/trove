@@ -1,3 +1,5 @@
+require_relative '../trove'
+
 describe Trove do
   let(:generator) { double :generator, generate: 'generate!', generate_summary: 'generate_summary!' }
   let(:stories) { double :stories }

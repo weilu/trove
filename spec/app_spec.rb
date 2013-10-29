@@ -54,10 +54,8 @@ describe 'Trove app' do
 
     it 'generates data using Trove' do
       trove = double(:trove)
-      Trove.should_receive(:new).and_return(trove)
-      trove.should_receive(:generate).with(token, project_id)
-      trove.should_receive(:aggregate).with(token, project_id)
 
+      DataSlave.should_receive(:perform_async).with(token, project_id)
       do_request
     end
 

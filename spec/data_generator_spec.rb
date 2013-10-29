@@ -1,3 +1,5 @@
+require 'data_generator'
+
 describe DataGenerator do
   def new_feature i, options
     PivotalTracker::Story.new({
