@@ -5,6 +5,7 @@ gem 'haml'
 gem 'pivotal-tracker'
 gem 'activesupport'
 gem 'thor'
+gem 'unicorn'
 
 group :development do
   gem 'rspec'
