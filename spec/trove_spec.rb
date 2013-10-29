@@ -12,7 +12,7 @@ describe Trove do
   describe '#generate' do
     let(:token) { '1234' }
     let(:project_id) { 'xxxx' }
-    let(:filename) { "javascript/data/#{token}#{project_id}stories.csv" }
+    let(:filename) { "public/data/#{token}#{project_id}stories.csv" }
 
     subject(:generate) { Trove.new.generate token, project_id }
 
@@ -46,7 +46,7 @@ describe Trove do
   describe '#aggregate' do
     let(:token) { '1234' }
     let(:project_id) { 'xxxx' }
-    let(:filename) { "javascript/data/#{token}#{project_id}stories_aggregated.csv" }
+    let(:filename) { "public/data/#{token}#{project_id}stories_aggregated.csv" }
 
     subject(:aggregate) { Trove.new.aggregate token, project_id }
 

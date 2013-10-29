@@ -53,8 +53,6 @@ describe 'Trove app' do
     end
 
     it 'generates data using Trove' do
-      trove = double(:trove)
-
       DataSlave.should_receive(:perform_async).with(token, project_id)
       do_request
     end

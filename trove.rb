@@ -36,7 +36,7 @@ class Trove < Thor
   end
 
   def data_dir_and_prefix
-    "javascript/data/#{@token}#{@project_id}"
+    "public/data/#{@token}#{@project_id}"
   end
 end
 
