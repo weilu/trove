@@ -132,15 +132,26 @@
     %script{src: "summary.js"}
     %script{src: "gantt.js"}
     :javascript
-      d3.csv('data/#{credentials}stories.csv', function(error, data) {
-        if(error) {
-          document.querySelector('#computing').style.display = 'block'
-        } else {
-          byReleaseChart().draw(data)
-          summaryChart().draw('#{credentials}')
-          ganttChart().draw(data)
-        }
-      })
+
+      var timeoutId = undefined
+
+      function fetch(){
+        d3.csv('data/#{credentials}stories.csv', function(error, data) {
+          if(error) {
+            document.querySelector('#computing').style.display = 'block'
+            timeoutId = window.setTimeout(fetch, 5000)
+          } else {
+            document.querySelector('#computing').style.display = 'none'
+            window.clearTimeout(timeoutId)
+
+            byReleaseChart().draw(data)
+            summaryChart().draw('#{credentials}')
+            ganttChart().draw(data)
+          }
+        })
+      }
+
+      fetch();
 
       if(window.location.search === '') $('#modal').modal('show')
 
