@@ -21,9 +21,8 @@ describe 'Trove app' do
 
       it { should be_ok }
 
-      %w(byReleaseChart summaryChart ganttChart).each do |chart|
-        its(:body) { should include("#{chart}().draw('')") }
-      end
+      its(:body) { should include("summaryChart().draw('')") }
+      its(:body) { should include("d3.csv('data/stories.csv'") }
     end
 
     context 'with credential & project params' do
@@ -36,9 +35,8 @@ describe 'Trove app' do
 
       it { should be_ok }
 
-      %w(byReleaseChart summaryChart ganttChart).each do |chart|
-        its(:body) { should include("#{chart}().draw('#{token}#{project_id}')") }
-      end
+      its(:body) { should include("summaryChart().draw('#{token}#{project_id}')") }
+      its(:body) { should include("d3.csv('data/#{token}#{project_id}stories.csv'") }
     end
   end
 

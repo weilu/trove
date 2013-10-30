@@ -64,6 +64,10 @@
         margin-top: 80px;
       }
 
+      #computing {
+        display: none;
+      }
+
       #footer {
         line-height: 80px;
         background-color: #f5f5f5;
@@ -91,6 +95,10 @@
         .chart#by-release
         .chart#summary
         .chart#gantt
+        #computing
+          %h1 Still Computing...
+          %p.lead Come back later
+          %img{src: 'images/computing.gif'}
     #footer
       .container
         %a{data: {toggle: 'modal'}, href: '#modal', class: 'btn btn-info btn-lg'} Visualize My Project
@@ -124,8 +132,15 @@
     %script{src: "summary.js"}
     %script{src: "gantt.js"}
     :javascript
-      byReleaseChart().draw('#{credentials}')
-      summaryChart().draw('#{credentials}')
-      ganttChart().draw('#{credentials}')
+      d3.csv('data/#{credentials}stories.csv', function(error, data) {
+        if(error) {
+          document.querySelector('#computing').style.display = 'block'
+        } else {
+          byReleaseChart().draw(data)
+          summaryChart().draw('#{credentials}')
+          ganttChart().draw(data)
+        }
+      })
+
       if(window.location.search === '') $('#modal').modal('show')
 
