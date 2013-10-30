@@ -30,9 +30,13 @@ class Trove < Thor
   end
 
   def fetch_stories
+    puts '================= fetching data from pivotaltracker API... ================='
     PivotalTracker::Client.token = @token
     PivotalTracker::Client.use_ssl = true
-    PivotalTracker::Project.find(@project_id).stories.all
+    stories = PivotalTracker::Project.find(@project_id).stories.all
+    puts '================= fetching done ================='
+
+    stories
   end
 
   def data_dir_and_prefix
